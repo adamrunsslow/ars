@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+
+  <style>
+    :root {
+      --background: #f4f7fb;
+      --surface: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text: #172033;
+      --muted: #64748b;
+      --border: #dbe3ee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 18px 5%;
+    }
+
+    .site-title {
+      margin: 0 0 14px;
+      font-size: 1.5rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      border: none;
+      border-radius: 8px 8px 0 0;
+      background: transparent;
+      color: #cbd5e1;
+      padding: 11px 16px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .tab-button:hover {
+      background: #1e293b;
+      color: white;
+    }
+
+    .tab-button.active {
+      background: var(--surface);
+      color: var(--primary);
+    }
+
+    main {
+      width: min(1000px, 90%);
+      margin: 32px auto;
+    }
+
+    .page {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+      min-height: 400px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #0f172a;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #475569;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      background: #f8fafc;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary-dark);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      max-width: 550px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button.submit-button {
+      border: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    button.submit-button:hover {
+      background: var(--primary-dark);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 10px 20px 30px;
+    }
+
+    @media (max-width: 500px) {
+      header {
+        padding: 16px;
+      }
+
+      .tab-button {
+        flex: 1 1 auto;
+        border-radius: 8px;
+      }
+
+      main {
+        width: 92%;
+        margin: 20px auto;
+      }
+
+      .page {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2 class="site-title">My Website</h2>
+
+    <nav class="tabs" aria-label="Website pages">
+      <button class="tab-button active" data-page="home">Home</button>
+      <button class="tab-button" data-page="about">About</button>
+      <button class="tab-button" data-page="projects">Projects</button>
+      <button class="tab-button" data-page="contact">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <h1>Welcome</h1>
+      <p>
+        This is the home page of your website. Click the tabs at the top to
+        switch between different sections.
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Explore</h3>
+          <p>Add information about your interests, hobbies, or website topic here.</p>
+        </div>
+
+        <div class="card">
+          <h3>Create</h3>
+          <p>Use this site to show off projects, photos, games, puzzles, or artwork.</p>
+        </div>
+
+        <div class="card">
+          <h3>Connect</h3>
+          <p>Use the Contact tab for an email form or your social media links.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="page">
+      <h1>About Me</h1>
+      <p>
+        Write a short introduction here. You could explain who you are, what
+        this website is for, and what visitors can find on it.
+      </p>
+
+      <p>
+        Example: “I enjoy building websites, exploring outdoors, and creating
+        fun projects. This site is where I share what I make.”
+      </p>
+    </section>
+
+    <section id="projects" class="page">
+      <h1>Projects</h1>
+      <p>Put your projects, ideas, or updates here.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Project One</h3>
+          <p>Description of your first project.</p>
+        </div>
+
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>Description of your second project.</p>
+        </div>
+
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>Description of your third project.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="page">
+      <h1>Contact</h1>
+      <p>This sample form does not send messages yet, but you can connect it to a form service later.</p>
+
+      <form onsubmit="showMessage(event)">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea placeholder="Your message" required></textarea>
+        <button class="submit-button" type="submit">Send Message</button>
+      </form>
+
+      <p id="form-message"></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 My Website
+  </footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const pages = document.querySelectorAll(".page");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedPage = button.dataset.page;
+
+        tabButtons.forEach((tab) => tab.classList.remove("active"));
+        pages.forEach((page) => page.classList.remove("active"));
+
+        button.classList.add("active");
+        document.getElementById(selectedPage).classList.add("active");
+      });
+    });
+
+    function showMessage(event) {
+      event.preventDefault();
+      document.getElementById("form-message").textContent =
+        "Thanks! Your message has been entered.";
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
